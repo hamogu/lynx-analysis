@@ -1,0 +1,12 @@
+children:
+  - 
+    title: Basic layout for Lynx
+    type: included
+    href: index
+    caption: Lynx
+    children:
+      -
+        title: Lynx with a flat input spectrum
+        type: x3d
+        href: xbasicflat
+        caption: flat spectrum

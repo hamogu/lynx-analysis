@@ -1,0 +1,64 @@
+{% extends "basic3.html" %}
+{% block head %}		
+<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script> 
+<link rel='stylesheet' type='text/css'
+      href='http://www.x3dom.org/download/x3dom.css'></link> 
+{% endblock %}
+
+{% block rightbar %}
+<h2>Mouse Navigation</h2> 
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Button</th>
+      <th>Function</th>
+    </tr>
+    <tr>
+      <td>Left</td>
+      <td>Rotate</td>
+    </tr>
+    <tr>
+      <td>Middle </td>
+      <td>Pan</td>
+    </tr>
+    <tr>
+      <td>Left + Ctl</td>
+      <td>Pan</td>
+    </tr>
+    <tr>
+      <td>Right</td>
+      <td>Zoom</td>
+    </tr>
+    <tr>
+      <td>Wheel</td>
+      <td>Zoom</td>
+    </tr>
+    <tr>
+      <td>Left + Alt</td>
+      <td>Zoom</td>
+    </tr>
+    <tr>
+      <td>Left double click</td>
+      <td>Set center of rotation</td>
+    </tr>
+    <tr>
+      <td>key "r"</td>
+      <td>reset view</td>
+     </tr>
+  </tbody>
+</table>
+
+<p> 
+  Please see <a href="https://www.x3dom.org/documentation/interaction/">here
+  </a> for a full list of mouse and keyboard navigation controls.
+</p> 
+{% endblock %}
+
+{% block maincontent %}
+<x3d width='780px' height='700px'> 
+  <scene> 
+    <inline url="{{ x3d.path }}.x3d" nameSpaceName="{{ x3d.name }}" mapDEFToID="true" onclick=''/>
+  </scene> 
+</x3d> 
+{{x3d.figcaption|safe}}
+{% endblock %}
