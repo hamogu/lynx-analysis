@@ -10,3 +10,8 @@ children:
         type: x3d
         href: xbasicflat
         caption: flat spectrum
+      -
+        title: Sub-aperturing
+        type: notebook
+        href: Subaperturing
+        caption: Sub-aperturing
