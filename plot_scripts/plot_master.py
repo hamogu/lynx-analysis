@@ -20,7 +20,7 @@ class LynxPlot(object):
     n_photons = 1e4
     wave = np.arange(6., 60., 0.5) * u.Angstrom
     energies = wave.to(u.keV, equivalencies=u.spectral()).value
-    instrument = lynx.default
+    instrument = lynx.PerfectLynx()
 
     @property
     def filename(self):
