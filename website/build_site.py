@@ -15,7 +15,7 @@ from copy import copy
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
-parser = argparse.ArgumentParser(description='Generate website to bundle all ARUCUS simulations in one place with both Jupiter notebooks rendered to html and x3d output.')
+parser = argparse.ArgumentParser(description='Generate website to bundle all Lynx simulations in one place with both Jupiter notebooks rendered to html and x3d output.')
 parser.add_argument('outpath',
                     help='base directory for output')
 parser.add_argument('x3dpath',

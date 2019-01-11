@@ -11,7 +11,22 @@ children:
         href: xbasicflat
         caption: flat spectrum
       -
+        title: Rowland Geometry
+        type: notebook
+        href: RowlandGeometry
+        caption: Rowland Geometry
+      -
+        title: Detector position
+        type: notebook
+        href: Placethedetector
+        caption: Detector placement
+      -
         title: Sub-aperturing
         type: notebook
         href: Subaperturing
         caption: Sub-aperturing
+      -
+        title: Alignment tolerances
+        type: notebook
+        href: Tolerances
+        caption: Alignment
