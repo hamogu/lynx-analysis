@@ -1,38 +1,24 @@
 '''This module collects utilities for the Arcus notebooks.'''
 import sys
 import os
+import logging
 import subprocess
-from IPython.display import display, Markdown, HTML, Image
+from IPython.display import display, Markdown, Image
 
 import configparser
 
-__all__ = ['display_header', 'get_path', 'cfgpath', 'display_codetoggle']
+__all__ = ['display_header', 'get_path', 'cfgpath']
 
 cfgpath = [os.path.join(os.path.dirname(sys.modules[__name__].__file__), '..', 'site.cfg')]
 'Path list to search for configuration files.'
 
-import logging
+
 class DisableLogger():
     def __enter__(self):
-       logging.disable(logging.CRITICAL)
-    def __exit__(self, a, b, c):
-       logging.disable(logging.NOTSET)
+        logging.disable(logging.CRITICAL)
 
-codetoggle = HTML('''<script>
-code_show=true;
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- $('div.prompt').hide();
- } else {
- $('div.input').show();
- $('div.prompt').show();
-}
- code_show = !code_show
-}
-$( document ).ready(code_toggle);
-</script>
-<form action="javascript:code_toggle()"><input type="submit" value="Click here to toggle on/off the display of raw code."></form>''')
+    def __exit__(self, a, b, c):
+        logging.disable(logging.NOTSET)
 
 logo = Image('logo_inverted.png', height=80, width=160)
 
@@ -115,7 +101,7 @@ def display_header(filename, status=None):
     display(revision_status(filename, status=status))
 
 
-def get_path(name):
+def get_path(name, verbose=False):
     '''Get path name info from site.cfg file in root directory.
 
     If a path does not exist, it will be created.
@@ -123,18 +109,11 @@ def get_path(name):
     conf = configparser.ConfigParser()
     cfgfile = conf.read(cfgpath)
     if cfgfile:
-        print("Reading config file with path definitions: {}".format(cfgfile))
+        if verbose:
+            print("Reading config file with path definitions: {}".format(cfgfile))
     else:
         raise Exception("No config file with path specifications found. File must be called 'site.py' and be located in one of the following directories: {}".format(cfgpath))
     path = conf.get("Path", name)
     if not os.path.exists(path):
         os.makedirs(path)
     return path
-
-
-def display_codetoggle():
-    '''Display button "show code on/off". Calling this function
-    toggles off. Call this at the end of a notebook after all processing steps have run.
-    Otherwise, newly run cell will have prompts.
-    '''
-    display(codetoggle)

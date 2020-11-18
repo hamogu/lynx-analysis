@@ -144,7 +144,7 @@ run_for_energies(Sequence(elements=instrum.elements[:3]), wiggle,
                  changeindividual,
                  Sequence(elements=instrum.elements[3:]),
                  'CAT_individual.fits',
-                 reset=reset6d)
+                 reset=reset_6d)
 
 
 # jitter
